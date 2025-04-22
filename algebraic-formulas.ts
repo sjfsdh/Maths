@@ -1,0 +1,725 @@
+export const algebraicFormulas = [
+  {
+    category: "Basic Algebra",
+    formulas: [
+      {
+        name: "Addition Property of Equality",
+        formula: "If a = b, then a + c = b + c",
+        description: "Adding the same value to both sides of an equation maintains equality",
+        example: "If x + 3 = 7, then x + 3 + 2 = 7 + 2, so x + 5 = 9",
+      },
+      {
+        name: "Subtraction Property of Equality",
+        formula: "If a = b, then a - c = b - c",
+        description: "Subtracting the same value from both sides of an equation maintains equality",
+        example: "If x + 3 = 7, then x + 3 - 3 = 7 - 3, so x = 4",
+      },
+      {
+        name: "Multiplication Property of Equality",
+        formula: "If a = b, then a × c = b × c",
+        description: "Multiplying both sides of an equation by the same non-zero value maintains equality",
+        example: "If x/3 = 4, then x/3 × 3 = 4 × 3, so x = 12",
+      },
+      {
+        name: "Division Property of Equality",
+        formula: "If a = b, then a ÷ c = b ÷ c (c ≠ 0)",
+        description: "Dividing both sides of an equation by the same non-zero value maintains equality",
+        example: "If 3x = 15, then 3x ÷ 3 = 15 ÷ 3, so x = 5",
+      },
+      {
+        name: "Distributive Property",
+        formula: "a(b + c) = ab + ac",
+        description: "Multiplying a sum by a number equals the sum of the products",
+        example: "2(x + 3) = 2x + 6",
+      },
+      {
+        name: "Commutative Property of Addition",
+        formula: "a + b = b + a",
+        description: "The order of addition doesn't change the result",
+        example: "5 + x = x + 5",
+      },
+      {
+        name: "Commutative Property of Multiplication",
+        formula: "a × b = b × a",
+        description: "The order of multiplication doesn't change the result",
+        example: "5 × x = x × 5",
+      },
+      {
+        name: "Associative Property of Addition",
+        formula: "(a + b) + c = a + (b + c)",
+        description: "The grouping of addition doesn't change the result",
+        example: "(2 + x) + 3 = 2 + (x + 3)",
+      },
+      {
+        name: "Associative Property of Multiplication",
+        formula: "(a × b) × c = a × (b × c)",
+        description: "The grouping of multiplication doesn't change the result",
+        example: "(2 × x) × 3 = 2 × (x × 3)",
+      },
+    ],
+  },
+  {
+    category: "Linear Equations and Inequalities",
+    formulas: [
+      {
+        name: "Standard Form of a Linear Equation",
+        formula: "ax + b = c",
+        description: "A linear equation with one variable in standard form",
+        example: "2x + 3 = 7",
+      },
+      {
+        name: "Slope-Intercept Form",
+        formula: "y = mx + b",
+        description: "Linear equation where m is the slope and b is the y-intercept",
+        example: "y = 2x + 3 (slope = 2, y-intercept = 3)",
+      },
+      {
+        name: "Point-Slope Form",
+        formula: "y - y₁ = m(x - x₁)",
+        description: "Linear equation through point (x₁, y₁) with slope m",
+        example: "y - 4 = 2(x - 3) is a line through (3, 4) with slope 2",
+      },
+      {
+        name: "Slope Formula",
+        formula: "m = (y₂ - y₁)/(x₂ - x₁)",
+        description: "Calculates the slope between two points (x₁, y₁) and (x₂, y₂)",
+        example: "Slope between (2, 3) and (5, 9) is (9 - 3)/(5 - 2) = 6/3 = 2",
+      },
+      {
+        name: "Distance Formula",
+        formula: "d = √[(x₂ - x₁)² + (y₂ - y₁)²]",
+        description: "Calculates the distance between two points (x₁, y₁) and (x₂, y₂)",
+        example: "Distance between (1, 2) and (4, 6) is √[(4 - 1)² + (6 - 2)²] = √[9 + 16] = √25 = 5",
+      },
+      {
+        name: "Midpoint Formula",
+        formula: "M = ((x₁ + x₂)/2, (y₁ + y₂)/2)",
+        description: "Calculates the midpoint between two points (x₁, y₁) and (x₂, y₂)",
+        example: "Midpoint between (2, 3) and (6, 7) is ((2 + 6)/2, (3 + 7)/2) = (4, 5)",
+      },
+      {
+        name: "Linear Inequality",
+        formula: "ax + b < c (or >, ≤, ≥)",
+        description: "An inequality with one variable that has a linear solution",
+        example: "2x + 3 < 7",
+      },
+    ],
+  },
+  {
+    category: "Exponents and Radicals",
+    formulas: [
+      {
+        name: "Product of Powers",
+        formula: "xᵃ × xᵇ = xᵃ⁺ᵇ",
+        description: "When multiplying powers with the same base, add the exponents",
+        example: "x³ × x⁴ = x⁷",
+      },
+      {
+        name: "Quotient of Powers",
+        formula: "xᵃ ÷ xᵇ = xᵃ⁻ᵇ",
+        description: "When dividing powers with the same base, subtract the exponents",
+        example: "x⁵ ÷ x² = x³",
+      },
+      {
+        name: "Power of a Power",
+        formula: "(xᵃ)ᵇ = xᵃᵇ",
+        description: "When raising a power to another power, multiply the exponents",
+        example: "(x²)³ = x⁶",
+      },
+      {
+        name: "Power of a Product",
+        formula: "(xy)ᵃ = xᵃyᵃ",
+        description: "When raising a product to a power, raise each factor to that power",
+        example: "(2x)³ = 2³x³ = 8x³",
+      },
+      {
+        name: "Power of a Quotient",
+        formula: "(x/y)ᵃ = xᵃ/yᵃ",
+        description: "When raising a quotient to a power, raise both numerator and denominator to that power",
+        example: "(x/2)³ = x³/2³ = x³/8",
+      },
+      {
+        name: "Zero Exponent",
+        formula: "x⁰ = 1 (x ≠ 0)",
+        description: "Any non-zero number raised to the power of zero equals 1",
+        example: "5⁰ = 1",
+      },
+      {
+        name: "Negative Exponent",
+        formula: "x⁻ᵃ = 1/xᵃ",
+        description:
+          "A negative exponent means to take the reciprocal of the base raised to the absolute value of the exponent",
+        example: "2⁻³ = 1/2³ = 1/8",
+      },
+      {
+        name: "Fractional Exponent",
+        formula: "x^(m/n) = ⁿ√(x^m)",
+        description: "A fractional exponent m/n means to take the nth root of the base raised to the power of m",
+        example: "8^(2/3) = ³√(8²) = ³√64 = 4",
+      },
+      {
+        name: "Product of Radicals",
+        formula: "√a × √b = √(ab)",
+        description: "The product of square roots equals the square root of the product",
+        example: "√4 × √9 = √36 = 6",
+      },
+      {
+        name: "Quotient of Radicals",
+        formula: "√a ÷ √b = √(a/b)",
+        description: "The quotient of square roots equals the square root of the quotient",
+        example: "√16 ÷ √4 = √(16/4) = √4 = 2",
+      },
+      {
+        name: "Rationalizing the Denominator",
+        formula: "a/(√b) = (a√b)/b",
+        description: "Multiply both numerator and denominator by the radical to eliminate it from the denominator",
+        example: "3/√5 = (3√5)/5",
+      },
+    ],
+  },
+  {
+    category: "Polynomials",
+    formulas: [
+      {
+        name: "Polynomial Standard Form",
+        formula: "anxⁿ + an-1xⁿ⁻¹ + ... + a₁x + a₀",
+        description: "A polynomial arranged in descending order of exponents",
+        example: "3x⁴ + 2x³ - 5x² + x - 7",
+      },
+      {
+        name: "FOIL Method",
+        formula: "(a + b)(c + d) = ac + ad + bc + bd",
+        description: "Method for multiplying two binomials: First, Outer, Inner, Last",
+        example: "(x + 3)(x + 2) = x² + 2x + 3x + 6 = x² + 5x + 6",
+      },
+      {
+        name: "Square of a Binomial (1)",
+        formula: "(a + b)² = a² + 2ab + b²",
+        description: "Formula for squaring a binomial sum",
+        example: "(x + 3)² = x² + 2(x)(3) + 3² = x² + 6x + 9",
+      },
+      {
+        name: "Square of a Binomial (2)",
+        formula: "(a - b)² = a² - 2ab + b²",
+        description: "Formula for squaring a binomial difference",
+        example: "(x - 4)² = x² - 2(x)(4) + 4² = x² - 8x + 16",
+      },
+      {
+        name: "Difference of Squares",
+        formula: "a² - b² = (a + b)(a - b)",
+        description: "Formula for factoring the difference of two squares",
+        example: "x² - 9 = (x + 3)(x - 3)",
+      },
+      {
+        name: "Sum of Cubes",
+        formula: "a³ + b³ = (a + b)(a² - ab + b²)",
+        description: "Formula for factoring the sum of two cubes",
+        example: "x³ + 8 = (x + 2)(x² - 2x + 4)",
+      },
+      {
+        name: "Difference of Cubes",
+        formula: "a³ - b³ = (a - b)(a² + ab + b²)",
+        description: "Formula for factoring the difference of two cubes",
+        example: "x³ - 27 = (x - 3)(x² + 3x + 9)",
+      },
+      {
+        name: "Binomial Theorem",
+        formula: "(a + b)ⁿ = Σ(k=0 to n) (n choose k)aⁿ⁻ᵏbᵏ",
+        description: "Formula for expanding a binomial raised to a power",
+        example: "(x + y)³ = x³ + 3x²y + 3xy² + y³",
+      },
+    ],
+  },
+  {
+    category: "Quadratic Equations",
+    formulas: [
+      {
+        name: "Quadratic Formula",
+        formula: "x = (-b ± √(b² - 4ac))/(2a) for ax² + bx + c = 0",
+        description: "Formula for finding the roots of a quadratic equation",
+        example: "For x² + 5x + 6 = 0, x = (-5 ± √(25 - 24))/2 = (-5 ± 1)/2, so x = -3 or x = -2",
+      },
+      {
+        name: "Discriminant",
+        formula: "Δ = b² - 4ac",
+        description: "Determines the nature of the roots of a quadratic equation",
+        example: "For x² + 5x + 6 = 0, Δ = 5² - 4(1)(6) = 25 - 24 = 1 > 0, so there are two real roots",
+      },
+      {
+        name: "Completing the Square",
+        formula: "ax² + bx = a(x² + (b/a)x) = a(x + b/(2a))² - ab²/(4a²)",
+        description: "Method for rewriting a quadratic expression as a perfect square plus a constant",
+        example: "x² + 6x = (x + 3)² - 9",
+      },
+      {
+        name: "Vertex Form",
+        formula: "f(x) = a(x - h)² + k",
+        description: "Form of a quadratic function where (h, k) is the vertex",
+        example: "f(x) = 2(x - 3)² + 4 has vertex at (3, 4)",
+      },
+      {
+        name: "Axis of Symmetry",
+        formula: "x = -b/(2a)",
+        description: "The vertical line through the vertex of a parabola",
+        example: "For f(x) = 2x² - 12x + 5, the axis of symmetry is x = -(-12)/(2(2)) = 12/4 = 3",
+      },
+      {
+        name: "Vieta's Formulas",
+        formula: "For roots r and s of ax² + bx + c = 0: r + s = -b/a and rs = c/a",
+        description: "Relationships between the coefficients and roots of a quadratic equation",
+        example: "For x² + 5x + 6 = 0, the roots r and s satisfy r + s = -5 and rs = 6",
+      },
+    ],
+  },
+  {
+    category: "Functions and Graphs",
+    formulas: [
+      {
+        name: "Function Notation",
+        formula: "f(x) = [expression in terms of x]",
+        description: "Notation for defining a function",
+        example: "f(x) = 2x + 3",
+      },
+      {
+        name: "Domain",
+        formula: "The set of all valid input values for a function",
+        description: "Values of x for which f(x) is defined",
+        example: "For f(x) = 1/x, the domain is all real numbers except 0",
+      },
+      {
+        name: "Range",
+        formula: "The set of all possible output values of a function",
+        description: "Values of f(x) that can be produced by the function",
+        example: "For f(x) = x², the range is [0, ∞)",
+      },
+      {
+        name: "Composite Function",
+        formula: "(f ∘ g)(x) = f(g(x))",
+        description: "The composition of functions f and g",
+        example: "If f(x) = x² and g(x) = x + 1, then (f ∘ g)(x) = f(g(x)) = f(x + 1) = (x + 1)²",
+      },
+      {
+        name: "Inverse Function",
+        formula: "f⁻¹(y) = x if and only if f(x) = y",
+        description: "A function that reverses the effect of the original function",
+        example: "If f(x) = 2x + 3, then f⁻¹(x) = (x - 3)/2",
+      },
+      {
+        name: "Even Function",
+        formula: "f(-x) = f(x) for all x in the domain",
+        description: "A function symmetric about the y-axis",
+        example: "f(x) = x² is an even function because f(-x) = (-x)² = x² = f(x)",
+      },
+      {
+        name: "Odd Function",
+        formula: "f(-x) = -f(x) for all x in the domain",
+        description: "A function symmetric about the origin",
+        example: "f(x) = x³ is an odd function because f(-x) = (-x)³ = -x³ = -f(x)",
+      },
+      {
+        name: "Transformation: Vertical Shift",
+        formula: "f(x) + k shifts the graph of f(x) up by k units",
+        description: "Adding a constant to a function shifts its graph vertically",
+        example: "The graph of g(x) = x² + 3 is the graph of f(x) = x² shifted up 3 units",
+      },
+      {
+        name: "Transformation: Horizontal Shift",
+        formula: "f(x - h) shifts the graph of f(x) right by h units",
+        description: "Subtracting a constant from the input shifts the graph horizontally",
+        example: "The graph of g(x) = (x - 2)² is the graph of f(x) = x² shifted right 2 units",
+      },
+      {
+        name: "Transformation: Vertical Stretch/Compression",
+        formula: "a·f(x) stretches the graph of f(x) vertically by a factor of |a|",
+        description: "Multiplying a function by a constant affects its vertical scale",
+        example: "The graph of g(x) = 3x² is the graph of f(x) = x² stretched vertically by a factor of 3",
+      },
+      {
+        name: "Transformation: Horizontal Stretch/Compression",
+        formula: "f(bx) compresses the graph of f(x) horizontally by a factor of |b| (if |b| > 1)",
+        description: "Multiplying the input by a constant affects the horizontal scale",
+        example: "The graph of g(x) = (2x)² is the graph of f(x) = x² compressed horizontally by a factor of 2",
+      },
+      {
+        name: "Transformation: Reflection",
+        formula: "-f(x) reflects the graph of f(x) across the x-axis",
+        description: "Negating a function reflects its graph",
+        example: "The graph of g(x) = -x² is the graph of f(x) = x² reflected across the x-axis",
+      },
+    ],
+  },
+  {
+    category: "Systems of Equations",
+    formulas: [
+      {
+        name: "System of Linear Equations",
+        formula: "a₁x + b₁y = c₁\na₂x + b₂y = c₂",
+        description: "A set of two or more linear equations to be solved simultaneously",
+        example: "3x + 2y = 7\nx - y = 1",
+      },
+      {
+        name: "Substitution Method",
+        formula: "Solve one equation for one variable, then substitute into the other equation",
+        description: "Method for solving systems by expressing one variable in terms of others",
+        example:
+          "From x - y = 1, we get x = y + 1. Substituting into 3x + 2y = 7: 3(y + 1) + 2y = 7, so 3y + 3 + 2y = 7, thus 5y = 4, y = 4/5, and x = 9/5",
+      },
+      {
+        name: "Elimination Method",
+        formula: "Add or subtract equations to eliminate one variable",
+        description: "Method for solving systems by eliminating variables",
+        example:
+          "3x + 2y = 7 and x - y = 1. Multiply the second equation by 3: 3x - 3y = 3. Subtract from the first equation: 5y = 4, so y = 4/5 and x = 9/5",
+      },
+      {
+        name: "Cramer's Rule (2×2)",
+        formula: "x = D₁/D, y = D₂/D where D = |a₁ b₁|\n                                |a₂ b₂|",
+        description: "Method for solving systems using determinants",
+        example:
+          "For 3x + 2y = 7 and x - y = 1, D = |3 2|\n                                      |1 -1| = -3 - 2 = -5, D₁ = |7 2|\n                                                                                |1 -1| = -7 - 2 = -9, D₂ = |3 7|\n                                                                                                                |1 1| = 3 - 7 = -4, so x = -9/(-5) = 9/5 and y = -4/(-5) = 4/5",
+      },
+      {
+        name: "Matrix Method",
+        formula: "AX = B, so X = A⁻¹B",
+        description: "Method for solving systems using matrices",
+        example:
+          "For 3x + 2y = 7 and x - y = 1, A = [3 2; 1 -1], B = [7; 1], A⁻¹ = 1/(-5) * [-1 -2; -1 3] = [1/5 2/5; 1/5 -3/5], so X = A⁻¹B = [9/5; 4/5]",
+      },
+      {
+        name: "Consistent System",
+        formula: "A system with at least one solution",
+        description: "Classification of systems based on the existence of solutions",
+        example: "The system 3x + 2y = 7 and x - y = 1 is consistent with exactly one solution",
+      },
+      {
+        name: "Inconsistent System",
+        formula: "A system with no solutions",
+        description: "Classification of systems based on the existence of solutions",
+        example: "The system x + y = 2 and x + y = 3 is inconsistent",
+      },
+      {
+        name: "Dependent System",
+        formula: "A system with infinitely many solutions",
+        description: "Classification of systems based on the existence of solutions",
+        example: "The system 2x + 3y = 6 and 4x + 6y = 12 is dependent with infinitely many solutions",
+      },
+    ],
+  },
+  {
+    category: "Logarithms and Exponential Functions",
+    formulas: [
+      {
+        name: "Logarithm Definition",
+        formula: "y = logₐ(x) if and only if aʸ = x",
+        description: "Definition of logarithm as the inverse of exponentiation",
+        example: "log₂(8) = 3 because 2³ = 8",
+      },
+      {
+        name: "Product Rule",
+        formula: "logₐ(xy) = logₐ(x) + logₐ(y)",
+        description: "The logarithm of a product equals the sum of the logarithms",
+        example: "log₁₀(100 × 1000) = log₁₀(100) + log₁₀(1000) = 2 + 3 = 5",
+      },
+      {
+        name: "Quotient Rule",
+        formula: "logₐ(x/y) = logₐ(x) - logₐ(y)",
+        description: "The logarithm of a quotient equals the difference of the logarithms",
+        example: "log₁₀(1000/10) = log₁₀(1000) - log₁₀(10) = 3 - 1 = 2",
+      },
+      {
+        name: "Power Rule",
+        formula: "logₐ(xⁿ) = n·logₐ(x)",
+        description: "The logarithm of a power equals the exponent times the logarithm",
+        example: "log₁₀(1000) = log₁₀(10³) = 3·log₁₀(10) = 3·1 = 3",
+      },
+      {
+        name: "Change of Base Formula",
+        formula: "logₐ(x) = logᵦ(x)/logᵦ(a)",
+        description: "Formula for converting logarithms from one base to another",
+        example: "log₂(16) = log₁₀(16)/log₁₀(2) ≈ 1.204/0.301 ≈ 4",
+      },
+      {
+        name: "Natural Logarithm",
+        formula: "ln(x) = logₑ(x)",
+        description: "Logarithm with base e (approximately 2.71828)",
+        example: "ln(e²) = 2",
+      },
+      {
+        name: "Common Logarithm",
+        formula: "log(x) = log₁₀(x)",
+        description: "Logarithm with base 10",
+        example: "log(1000) = 3",
+      },
+      {
+        name: "Exponential Function",
+        formula: "f(x) = aˣ",
+        description: "Function where the variable is in the exponent",
+        example: "f(x) = 2ˣ, f(3) = 2³ = 8",
+      },
+      {
+        name: "Exponential Growth",
+        formula: "y = y₀eᵏᵗ",
+        description: "Model for quantities that grow at a rate proportional to their size",
+        example: "A population growing at 5% per year: P(t) = P₀e⁰·⁰⁵ᵗ",
+      },
+      {
+        name: "Exponential Decay",
+        formula: "y = y₀e⁻ᵏᵗ",
+        description: "Model for quantities that decrease at a rate proportional to their size",
+        example: "Radioactive decay: N(t) = N₀e⁻λᵗ where λ is the decay constant",
+      },
+      {
+        name: "Compound Interest",
+        formula: "A = P(1 + r/n)ⁿᵗ",
+        description: "Formula for calculating compound interest",
+        example: "$1000 invested at 5% compounded quarterly for 2 years: A = 1000(1 + 0.05/4)⁴ˣ² ≈ $1104.94",
+      },
+      {
+        name: "Continuous Compound Interest",
+        formula: "A = Peʳᵗ",
+        description: "Formula for calculating interest compounded continuously",
+        example: "$1000 invested at 5% compounded continuously for 2 years: A = 1000e⁰·⁰⁵ˣ² ≈ $1105.17",
+      },
+    ],
+  },
+  {
+    category: "Sequences and Series",
+    formulas: [
+      {
+        name: "Arithmetic Sequence",
+        formula: "aₙ = a₁ + (n - 1)d",
+        description: "Sequence where each term differs from the previous by a constant d",
+        example: "For the sequence 3, 7, 11, 15, ..., a₁ = 3, d = 4, so a₁₀ = 3 + (10 - 1)4 = 3 + 36 = 39",
+      },
+      {
+        name: "Sum of Arithmetic Sequence",
+        formula: "Sₙ = n(a₁ + aₙ)/2 = n(2a₁ + (n - 1)d)/2",
+        description: "Formula for the sum of the first n terms of an arithmetic sequence",
+        example: "Sum of 3, 7, 11, 15, 19: S₅ = 5(3 + 19)/2 = 5(22)/2 = 55",
+      },
+      {
+        name: "Geometric Sequence",
+        formula: "aₙ = a₁rⁿ⁻¹",
+        description: "Sequence where each term is a constant multiple r of the previous term",
+        example: "For the sequence 2, 6, 18, 54, ..., a₁ = 2, r = 3, so a₅ = 2(3)⁵⁻¹ = 2(3)⁴ = 2(81) = 162",
+      },
+      {
+        name: "Sum of Geometric Sequence",
+        formula: "Sₙ = a₁(1 - rⁿ)/(1 - r) for r ≠ 1",
+        description: "Formula for the sum of the first n terms of a geometric sequence",
+        example: "Sum of 2, 6, 18, 54, 162: S₅ = 2(1 - 3⁵)/(1 - 3) = 2(1 - 243)/(-2) = 2(242)/2 = 242",
+      },
+      {
+        name: "Infinite Geometric Series",
+        formula: "S = a₁/(1 - r) for |r| < 1",
+        description: "Formula for the sum of an infinite geometric series with |r| < 1",
+        example: "Sum of 1/2 + 1/4 + 1/8 + ...: S = (1/2)/(1 - 1/2) = (1/2)/(1/2) = 1",
+      },
+      {
+        name: "Arithmetic-Geometric Sequence",
+        formula: "aₙ = (a + (n - 1)d)rⁿ⁻¹",
+        description: "Sequence that combines arithmetic and geometric patterns",
+        example: "For the sequence where aₙ = (3 + (n - 1)2)(1/2)ⁿ⁻¹, a₃ = (3 + (3 - 1)2)(1/2)³⁻¹ = 7(1/2)² = 7/4",
+      },
+      {
+        name: "Fibonacci Sequence",
+        formula: "Fₙ = Fₙ₋₁ + Fₙ₋₂ with F₁ = 1, F₂ = 1",
+        description: "Sequence where each term is the sum of the two preceding terms",
+        example: "The first few terms are 1, 1, 2, 3, 5, 8, 13, 21, ...",
+      },
+      {
+        name: "Binomial Theorem",
+        formula: "(x + y)ⁿ = Σ(k=0 to n) (n choose k)xⁿ⁻ᵏyᵏ",
+        description: "Formula for expanding a binomial raised to a power",
+        example: "(x + y)³ = x³ + 3x²y + 3xy² + y³",
+      },
+    ],
+  },
+  {
+    category: "Matrices and Determinants",
+    formulas: [
+      {
+        name: "Matrix Addition",
+        formula: "[A + B]ᵢⱼ = Aᵢⱼ + Bᵢⱼ",
+        description: "Addition of matrices is done element by element",
+        example: "[1 2; 3 4] + [5 6; 7 8] = [6 8; 10 12]",
+      },
+      {
+        name: "Scalar Multiplication",
+        formula: "[kA]ᵢⱼ = kAᵢⱼ",
+        description: "Multiplication of a matrix by a scalar",
+        example: "3[1 2; 3 4] = [3 6; 9 12]",
+      },
+      {
+        name: "Matrix Multiplication",
+        formula: "[AB]ᵢⱼ = Σ(k) Aᵢₖ × Bₖⱼ",
+        description: "Multiplication of matrices",
+        example: "[1 2; 3 4] × [5 6; 7 8] = [19 22; 43 50]",
+      },
+      {
+        name: "Identity Matrix",
+        formula: "I = [1 0 0 ...; 0 1 0 ...; 0 0 1 ...; ...]",
+        description: "Matrix with 1s on the main diagonal and 0s elsewhere",
+        example: "The 2×2 identity matrix is [1 0; 0 1]",
+      },
+      {
+        name: "Determinant (2×2)",
+        formula: "det(A) = |A| = |a b|\n                      |c d| = ad - bc",
+        description: "Determinant of a 2×2 matrix",
+        example: "det([3 2; 1 4]) = 3×4 - 2×1 = 12 - 2 = 10",
+      },
+      {
+        name: "Determinant (3×3)",
+        formula: "det(A) = a₁₁(a₂₂a₃₃ - a₂₃a₃₂) - a₁₂(a₂₁a₃₃ - a₂₃a₃₁) + a₁₃(a₂₁a₃₂ - a₂₂a₃₁)",
+        description: "Determinant of a 3×3 matrix using cofactor expansion",
+        example:
+          "det([1 2 3; 4 5 6; 7 8 9]) = 1(5×9 - 6×8) - 2(4×9 - 6×7) + 3(4×8 - 5×7) = 1(45 - 48) - 2(36 - 42) + 3(32 - 35) = 1(-3) - 2(-6) + 3(-3) = -3 + 12 - 9 = 0",
+      },
+      {
+        name: "Matrix Inverse (2×2)",
+        formula: "A⁻¹ = 1/det(A) × [d -b; -c a] for A = [a b; c d]",
+        description: "Inverse of a 2×2 matrix",
+        example: "For A = [3 2; 1 4], det(A) = 10, so A⁻¹ = 1/10 × [4 -2; -1 3] = [0.4 -0.2; -0.1 0.3]",
+      },
+      {
+        name: "Transpose",
+        formula: "[Aᵀ]ᵢⱼ = Aⱼᵢ",
+        description: "Matrix formed by flipping a matrix over its diagonal",
+        example: "[1 2 3; 4 5 6]ᵀ = [1 4; 2 5; 3 6]",
+      },
+      {
+        name: "Adjugate Matrix",
+        formula: "adj(A) = Cᵀ where C is the matrix of cofactors",
+        description: "Matrix used in finding the inverse",
+        example: "For A = [3 2; 1 4], adj(A) = [4 -2; -1 3]",
+      },
+      {
+        name: "Matrix Inverse (general)",
+        formula: "A⁻¹ = adj(A)/det(A)",
+        description: "Inverse of a matrix using the adjugate",
+        example: "For A = [3 2; 1 4], A⁻¹ = [4 -2; -1 3]/10 = [0.4 -0.2; -0.1 0.3]",
+      },
+    ],
+  },
+  {
+    category: "Conic Sections",
+    formulas: [
+      {
+        name: "Circle",
+        formula: "(x - h)² + (y - k)² = r²",
+        description: "Equation of a circle with center (h, k) and radius r",
+        example: "(x - 2)² + (y - 3)² = 16 is a circle with center (2, 3) and radius 4",
+      },
+      {
+        name: "Ellipse (Horizontal)",
+        formula: "(x - h)²/a² + (y - k)²/b² = 1",
+        description: "Equation of an ellipse with center (h, k) and semi-major axis a along the x-axis",
+        example: "(x - 1)²/9 + (y - 2)²/4 = 1 is an ellipse with center (1, 2), a = 3, and b = 2",
+      },
+      {
+        name: "Ellipse (Vertical)",
+        formula: "(x - h)²/b² + (y - k)²/a² = 1",
+        description: "Equation of an ellipse with center (h, k) and semi-major axis a along the y-axis",
+        example: "(x - 1)²/4 + (y - 2)²/9 = 1 is an ellipse with center (1, 2), a = 3, and b = 2",
+      },
+      {
+        name: "Hyperbola (Horizontal)",
+        formula: "(x - h)²/a² - (y - k)²/b² = 1",
+        description: "Equation of a hyperbola with center (h, k) and transverse axis along the x-axis",
+        example: "(x - 2)²/9 - (y - 3)²/4 = 1 is a hyperbola with center (2, 3), a = 3, and b = 2",
+      },
+      {
+        name: "Hyperbola (Vertical)",
+        formula: "(y - k)²/a² - (x - h)²/b² = 1",
+        description: "Equation of a hyperbola with center (h, k) and transverse axis along the y-axis",
+        example: "(y - 3)²/9 - (x - 2)²/4 = 1 is a hyperbola with center (2, 3), a = 3, and b = 2",
+      },
+      {
+        name: "Parabola (Vertical, Opens Up/Down)",
+        formula: "(x - h)² = 4p(y - k)",
+        description: "Equation of a parabola with vertex (h, k) and focus at (h, k + p)",
+        example: "(x - 2)² = 8(y - 3) is a parabola with vertex (2, 3) and focus at (2, 5)",
+      },
+      {
+        name: "Parabola (Horizontal, Opens Right/Left)",
+        formula: "(y - k)² = 4p(x - h)",
+        description: "Equation of a parabola with vertex (h, k) and focus at (h + p, k)",
+        example: "(y - 3)² = 8(x - 2) is a parabola with vertex (2, 3) and focus at (4, 3)",
+      },
+    ],
+  },
+  {
+    category: "Vectors and Vector Spaces",
+    formulas: [
+      {
+        name: "Vector Addition",
+        formula: "u + v = (u₁ + v₁, u₂ + v₂, ..., uₙ + vₙ)",
+        description: "Addition of vectors is done component by component",
+        example: "(1, 2, 3) + (4, 5, 6) = (5, 7, 9)",
+      },
+      {
+        name: "Scalar Multiplication",
+        formula: "c·v = (c·v₁, c·v₂, ..., c·vₙ)",
+        description: "Multiplication of a vector by a scalar",
+        example: "3·(1, 2, 3) = (3, 6, 9)",
+      },
+      {
+        name: "Dot Product",
+        formula: "u·v = u₁v₁ + u₂v₂ + ... + uₙvₙ",
+        description: "Scalar product of two vectors",
+        example: "(1, 2, 3)·(4, 5, 6) = 1×4 + 2×5 + 3×6 = 4 + 10 + 18 = 32",
+      },
+      {
+        name: "Cross Product (3D)",
+        formula: "u × v = (u₂v₃ - u₃v₂, u₃v₁ - u₁v₃, u₁v₂ - u₂v₁)",
+        description: "Vector product of two 3D vectors",
+        example: "(1, 2, 3) × (4, 5, 6) = (2×6 - 3×5, 3×4 - 1×6, 1×5 - 2×4) = (12 - 15, 12 - 6, 5 - 8) = (-3, 6, -3)",
+      },
+      {
+        name: "Vector Magnitude",
+        formula: "|v| = √(v₁² + v₂² + ... + vₙ²)",
+        description: "Length or norm of a vector",
+        example: "|(3, 4)| = √(3² + 4²) = √(9 + 16) = √25 = 5",
+      },
+      {
+        name: "Unit Vector",
+        formula: "v̂ = v/|v|",
+        description: "Vector with magnitude 1 in the direction of v",
+        example: "For v = (3, 4), v̂ = (3, 4)/5 = (3/5, 4/5)",
+      },
+      {
+        name: "Vector Projection",
+        formula: "proj_v(u) = (u·v/|v|²)·v",
+        description: "Projection of vector u onto vector v",
+        example:
+          "For u = (1, 2) and v = (3, 4), proj_v(u) = ((1×3 + 2×4)/(3² + 4²))·(3, 4) = (11/25)·(3, 4) = (33/25, 44/25)",
+      },
+      {
+        name: "Angle Between Vectors",
+        formula: "cos(θ) = u·v/(|u|·|v|)",
+        description: "Cosine of the angle between two vectors",
+        example: "For u = (1, 0) and v = (0, 1), cos(θ) = (1×0 + 0×1)/(1×1) = 0, so θ = 90°",
+      },
+      {
+        name: "Linear Independence",
+        formula:
+          "Vectors v₁, v₂, ..., vₙ are linearly independent if c₁v₁ + c₂v₂ + ... + cₙvₙ = 0 implies c₁ = c₂ = ... = cₙ = 0",
+        description: "Condition for a set of vectors to be linearly independent",
+        example:
+          "Vectors (1, 0) and (0, 1) are linearly independent because c₁(1, 0) + c₂(0, 1) = (0, 0) implies c₁ = c₂ = 0",
+      },
+      {
+        name: "Basis",
+        formula: "A set of linearly independent vectors that span a vector space",
+        description: "Minimal set of vectors needed to represent any vector in the space",
+        example: "The standard basis for R² is {(1, 0), (0, 1)}",
+      },
+      {
+        name: "Dimension",
+        formula: "The number of vectors in a basis for a vector space",
+        description: "Measure of the 'size' of a vector space",
+        example: "The dimension of R³ is 3",
+      },
+    ],
+  },
+]
