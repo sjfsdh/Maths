@@ -9,10 +9,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Completely disable the App Router
-  experimental: {
-    appDir: false,
-  },
 }
 
 export default nextConfig

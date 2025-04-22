@@ -1,19 +1,8 @@
 "use client"
 
-import { useEffect } from "react"
-import { usePathname } from "next/navigation"
+import { useScrollTop } from "@/hooks/use-scroll-top"
 
 export function ScrollTop() {
-  const pathname = usePathname()
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      })
-    }
-  }, [pathname])
-
+  useScrollTop()
   return null
 }

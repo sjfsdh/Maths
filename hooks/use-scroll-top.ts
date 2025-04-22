@@ -1,10 +1,11 @@
 "use client"
 
 import { useEffect } from "react"
-import { usePathname } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 
 export function useScrollTop() {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -13,5 +14,5 @@ export function useScrollTop() {
         behavior: "smooth",
       })
     }
-  }, [pathname])
+  }, [pathname, searchParams])
 }
