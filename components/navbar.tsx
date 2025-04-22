@@ -1,68 +1,71 @@
-"use client"
-
 import Link from "next/link"
-import { BookOpen } from "lucide-react"
+import { Logo } from "@/components/logo"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Menu } from "lucide-react"
-import { useState } from "react"
 
 export function Navbar() {
-  const [open, setOpen] = useState(false)
-
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/tools", label: "Tools" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
-  ]
-
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2">
-            <BookOpen className="h-6 w-6" />
-            <span className="font-semibold text-xl hidden md:inline-block">Quicklearn</span>
+      <div className="container flex h-16 items-center">
+        <Logo />
+        <nav className="hidden md:flex ml-6 gap-6">
+          <Link href="/" className="text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+            Home
           </Link>
-        </div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-medium transition-colors hover:text-primary">
-              {link.label}
-            </Link>
-          ))}
+          <Link
+            href="/tools"
+            className="text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            Tools
+          </Link>
+          <Link
+            href="/blog"
+            className="text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            Blog
+          </Link>
+          <Link
+            href="/about"
+            className="text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            About
+          </Link>
+          <Link
+            href="/contact"
+            className="text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            Contact
+          </Link>
         </nav>
-
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
-
-          {/* Mobile Navigation */}
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild className="md:hidden">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild className="md:hidden">
               <Button variant="outline" size="icon">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <nav className="flex flex-col gap-4 mt-8">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-lg font-medium py-2 transition-colors hover:text-primary"
-                    onClick={() => setOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-[200px]">
+              <DropdownMenuItem asChild>
+                <Link href="/">Home</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/tools">Tools</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/blog">Blog</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/about">About</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/contact">Contact</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>

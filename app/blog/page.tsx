@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -20,6 +21,7 @@ const blogPosts = [
     readTime: "8 min read",
     tags: ["Mathematics", "Mental Math", "Learning Techniques"],
     slug: "mastering-mental-math",
+    image: "/images/mental-math.png",
   },
   {
     id: "2",
@@ -31,6 +33,7 @@ const blogPosts = [
     readTime: "10 min read",
     tags: ["Typing", "Productivity", "Learning Techniques"],
     slug: "science-of-typing",
+    image: "/images/science-of-typing.png",
   },
   {
     id: "3",
@@ -42,6 +45,7 @@ const blogPosts = [
     readTime: "12 min read",
     tags: ["Mathematics", "Science", "Unit Conversion", "Practical Skills"],
     slug: "understanding-unit-conversions",
+    image: "/images/understanding-unit-conversions.png",
   },
   {
     id: "4",
@@ -53,6 +57,7 @@ const blogPosts = [
     readTime: "9 min read",
     tags: ["Mathematics", "Percentages", "Practical Skills", "Finance"],
     slug: "mastering-percentages",
+    image: "/images/mastering-percentages.png",
   },
   {
     id: "5",
@@ -64,6 +69,7 @@ const blogPosts = [
     readTime: "11 min read",
     tags: ["Mathematics", "Algebra", "Problem Solving", "Education"],
     slug: "solving-algebraic-equations",
+    image: "/images/solving-algebraic-equations.png",
   },
   {
     id: "6",
@@ -75,6 +81,7 @@ const blogPosts = [
     readTime: "10 min read",
     tags: ["Mathematics", "Ratios", "Proportions", "Practical Applications"],
     slug: "mathematics-of-ratios",
+    image: "/images/mathematics-of-ratios.png",
   },
   {
     id: "7",
@@ -86,6 +93,7 @@ const blogPosts = [
     readTime: "8 min read",
     tags: ["Science", "Temperature", "Unit Conversion", "Physics"],
     slug: "temperature-scales-explained",
+    image: "/images/temperature-scales.png",
   },
   {
     id: "8",
@@ -97,6 +105,7 @@ const blogPosts = [
     readTime: "5 min read",
     tags: ["Typing", "Productivity", "Skills"],
     slug: "improve-typing-speed",
+    image: "/images/science-of-typing.png",
   },
   {
     id: "9",
@@ -108,6 +117,7 @@ const blogPosts = [
     readTime: "8 min read",
     tags: ["Mathematics", "Education", "Beginners"],
     slug: "understanding-math-formulas",
+    image: "/images/solving-algebraic-equations.png",
   },
   {
     id: "10",
@@ -119,6 +129,7 @@ const blogPosts = [
     readTime: "6 min read",
     tags: ["Science", "Engineering", "Unit Conversion"],
     slug: "unit-conversion-importance",
+    image: "/images/understanding-unit-conversions.png",
   },
   {
     id: "11",
@@ -130,6 +141,7 @@ const blogPosts = [
     readTime: "4 min read",
     tags: ["Mathematics", "Percentages", "Practical Skills"],
     slug: "calculate-percentages",
+    image: "/images/mastering-percentages.png",
   },
   {
     id: "12",
@@ -141,6 +153,7 @@ const blogPosts = [
     readTime: "7 min read",
     tags: ["Mathematics", "History", "Education"],
     slug: "history-of-mathematical-notation",
+    image: "/images/mental-math.png",
   },
 ]
 
@@ -148,7 +161,9 @@ export default function BlogPage() {
   return (
     <div className="container max-w-6xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">Quicklearn Blog</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-rose-600 dark:from-amber-400 dark:to-rose-400">
+          Quicklearn Blog
+        </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Educational articles, tips, and resources to help you learn and grow
         </p>
@@ -161,10 +176,28 @@ export default function BlogPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogPosts.map((post) => (
-          <Card key={post.id} className="flex flex-col h-full">
-            <CardHeader>
+          <Card key={post.id} className="flex flex-col h-full overflow-hidden group">
+            <div className="relative h-48 w-full overflow-hidden">
+              <Link href={`/blog/${post.slug}`}>
+                <Image
+                  src={post.image || "/placeholder.svg"}
+                  alt={post.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </Link>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-70"></div>
+              <div className="absolute bottom-4 left-4 z-10">
+                <Badge className="bg-white/80 text-black text-xs font-medium">{post.tags[0]}</Badge>
+              </div>
+            </div>
+            <CardHeader className="p-6">
               <CardTitle className="text-xl">
-                <Link href={`/blog/${post.slug}`} className="hover:underline">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="hover:underline text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400"
+                >
                   {post.title}
                 </Link>
               </CardTitle>
@@ -172,11 +205,11 @@ export default function BlogPage() {
                 <User className="h-3 w-3" /> {post.author} • <Clock className="h-3 w-3" /> {post.readTime}
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex-1">
+            <CardContent className="p-6 pt-0 flex-1">
               <p className="text-sm text-muted-foreground">{post.excerpt}</p>
             </CardContent>
-            <CardFooter className="flex flex-col items-start gap-4">
-              <div className="flex flex-wrap gap-2">
+            <CardFooter className="p-6 pt-0">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {post.tags.slice(0, 3).map((tag) => (
                   <Badge key={tag} variant="secondary" className="text-xs">
                     <Tag className="h-3 w-3 mr-1" />
@@ -189,7 +222,12 @@ export default function BlogPage() {
                   </Badge>
                 )}
               </div>
-              <Button asChild variant="outline" size="sm" className="w-full">
+              <Button
+                asChild
+                variant="outline"
+                size="sm"
+                className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950"
+              >
                 <Link href={`/blog/${post.slug}`}>Read More</Link>
               </Button>
             </CardFooter>

@@ -24,16 +24,37 @@ const paragraphs = {
     "The quick brown fox jumps over the lazy dog. This sentence contains every letter in the English alphabet. It is often used to test typing skills and keyboard layouts. Try to type it as quickly and accurately as you can.",
     "Learning to type quickly and accurately is an essential skill in today's digital world. Regular practice can help you improve your typing speed and reduce errors. Set aside some time each day to practice typing.",
     "Typing is the process of writing or inputting text by pressing keys on a keyboard. Touch typing is a style of typing where you use all of your fingers without looking at the keys. This method can significantly increase your typing speed.",
+    "Good posture is important when typing. Sit up straight, keep your feet flat on the floor, and position your keyboard at elbow height. Your wrists should be straight and your fingers slightly curved over the keys.",
+    "The home row keys are where your fingers should rest when not typing. For the QWERTY keyboard, the home row consists of the keys A, S, D, F for the left hand and J, K, L, semicolon for the right hand.",
+    "Practice makes perfect when it comes to typing. The more you type, the more familiar you become with the keyboard layout, and the faster and more accurate your typing will be.",
+    "Typing without looking at the keyboard is called touch typing. It allows you to focus on the screen rather than your fingers, which can significantly improve your typing speed and accuracy.",
+    "Rhythm is important in typing. Try to maintain a steady pace rather than typing in bursts. This will help you develop muscle memory and improve your overall typing speed.",
+    "Many online games and tools can help you improve your typing skills. They make practice fun and engaging, which can help you stay motivated to continue improving.",
+    "When learning to type, focus on accuracy first, then speed. It's easier to build speed once you've developed good typing habits than it is to break bad habits later on.",
   ],
   intermediate: [
     "Programming involves tasks such as analysis, generating algorithms, profiling algorithms' accuracy and resource consumption, and the implementation of algorithms. The source code of a program is written in one or more languages that are intelligible to programmers, rather than machine code, which is directly executed by the central processing unit.",
     "The Internet is a global system of interconnected computer networks that use the standard Internet protocol suite to link several billion devices worldwide. It is a network of networks that consists of millions of private, public, academic, business, and government networks of local to global scope, linked by a broad array of electronic, wireless, and optical networking technologies.",
     "Artificial intelligence is intelligence demonstrated by machines, as opposed to natural intelligence displayed by animals including humans. Leading AI textbooks define the field as the study of 'intelligent agents': any system that perceives its environment and takes actions that maximize its chance of achieving its goals.",
+    "Cloud computing is the on-demand availability of computer system resources, especially data storage and computing power, without direct active management by the user. The term is generally used to describe data centers available to many users over the Internet.",
+    "Data science is an interdisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data, and apply knowledge and actionable insights from data across a broad range of application domains.",
+    "Machine learning is the study of computer algorithms that improve automatically through experience. It is seen as a subset of artificial intelligence. Machine learning algorithms build a mathematical model based on sample data, known as training data, in order to make predictions or decisions without being explicitly programmed to do so.",
+    "Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information; extorting money from users; or interrupting normal business processes.",
+    "Virtual reality is a simulated experience that can be similar to or completely different from the real world. Applications of virtual reality can include entertainment and educational purposes. Other distinct types of VR style technology include augmented reality and mixed reality.",
+    "Blockchain technology is a structure that stores transactional records, also known as the block, of the public in several databases, known as the 'chain,' in a network connected through peer-to-peer nodes. This storage is referred to as a 'digital ledger.'",
+    "The Internet of Things (IoT) describes the network of physical objects—'things'—that are embedded with sensors, software, and other technologies for the purpose of connecting and exchanging data with other devices and systems over the Internet.",
   ],
   advanced: [
     "Quantum computing is the exploitation of collective properties of quantum states, such as superposition and entanglement, to perform computation. The devices that perform quantum computations are known as quantum computers. They are believed to be able to solve certain computational problems, such as integer factorization, substantially faster than classical computers.",
     "Cryptography, or cryptology, is the practice and study of techniques for secure communication in the presence of third parties called adversaries. More generally, cryptography is about constructing and analyzing protocols that prevent third parties or the public from reading private messages; various aspects in information security such as data confidentiality, data integrity, authentication, and non-repudiation are central to modern cryptography.",
     "The blockchain is a distributed ledger technology that underlies cryptocurrencies like Bitcoin and Ethereum, but it has many other applications. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data. By design, a blockchain is resistant to modification of the data. It is 'an open, distributed ledger that can record transactions between two parties efficiently and in a verifiable and permanent way'.",
+    "Neuromorphic computing is a concept developed by Carver Mead in the late 1980s, describing the use of very-large-scale integration systems containing electronic analog circuits to mimic neuro-biological architectures present in the nervous system. In recent times, the term neuromorphic has been used to describe analog, digital, mixed-mode analog/digital VLSI, and software systems that implement models of neural systems.",
+    "Computational complexity theory focuses on classifying computational problems according to their inherent difficulty, and relating these classes to each other. A computational problem is a task solved by a computer. A computation problem is solvable by mechanical application of mathematical steps, such as an algorithm.",
+    "Bioinformatics is an interdisciplinary field that develops methods and software tools for understanding biological data, in particular when the data sets are large and complex. As an interdisciplinary field of science, bioinformatics combines biology, computer science, information engineering, mathematics and statistics to analyze and interpret biological data.",
+    "Reinforcement learning is an area of machine learning concerned with how software agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Reinforcement learning is one of three basic machine learning paradigms, alongside supervised learning and unsupervised learning.",
+    "Quantum cryptography is the science of exploiting quantum mechanical properties to perform cryptographic tasks. The best known example of quantum cryptography is quantum key distribution which offers an information-theoretically secure solution to the key exchange problem.",
+    "Edge computing is a distributed computing paradigm that brings computation and data storage closer to the location where it is needed, to improve response times and save bandwidth. The origins of edge computing lie in content delivery networks that were created in the late 1990s to serve web and video content from edge servers that were deployed close to users.",
+    "Explainable AI (XAI) refers to methods and techniques in the application of artificial intelligence technology such that the results of the solution can be understood by human experts. It contrasts with the concept of the 'black box' in machine learning where even their designers cannot explain why the AI arrived at a specific decision.",
   ],
 }
 
@@ -69,6 +90,12 @@ export default function TypingSpeedTester() {
 
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Add these to the state variables section
+  const [timerMode, setTimerMode] = useState(false)
+  const [timeLimit, setTimeLimit] = useState(60) // Default 60 seconds
+  const [timeRemaining, setTimeRemaining] = useState(60)
+  const [testFailed, setTestFailed] = useState(false)
 
   // Function to get a random paragraph based on the selected level
   const getRandomParagraph = useCallback(() => {
@@ -109,10 +136,30 @@ export default function TypingSpeedTester() {
     setIsStarted(true)
     setStartTime(Date.now())
     setCurrentTime(Date.now())
+    setTestFailed(false)
+
+    if (timerMode && level === "advanced") {
+      setTimeRemaining(timeLimit)
+    }
 
     // Start the timer
     timerRef.current = setInterval(() => {
       setCurrentTime(Date.now())
+
+      if (timerMode && level === "advanced") {
+        setTimeRemaining((prev) => {
+          const newTime = prev - 1
+          if (newTime <= 0 && !isFinished) {
+            // Time's up - fail the test
+            clearInterval(timerRef.current as NodeJS.Timeout)
+            setTestFailed(true)
+            setIsFinished(true)
+            setShowResults(true)
+            return 0
+          }
+          return newTime
+        })
+      }
     }, 1000)
 
     // Focus the input field
@@ -278,6 +325,49 @@ export default function TypingSpeedTester() {
     }
   }
 
+  // Add this component before the return statement
+  const TimerModeToggle = () => {
+    if (level !== "advanced") return null
+
+    return (
+      <div className="flex items-center gap-4 mt-4">
+        <div className="flex items-center">
+          <input
+            type="checkbox"
+            id="timer-mode"
+            checked={timerMode}
+            onChange={(e) => setTimerMode(e.target.checked)}
+            className="mr-2"
+            disabled={isStarted}
+          />
+          <label htmlFor="timer-mode" className="text-sm font-medium">
+            Timer Mode
+          </label>
+        </div>
+
+        {timerMode && (
+          <div className="flex items-center gap-2">
+            <label htmlFor="time-limit" className="text-sm font-medium">
+              Time Limit (seconds):
+            </label>
+            <select
+              id="time-limit"
+              value={timeLimit}
+              onChange={(e) => setTimeLimit(Number(e.target.value))}
+              disabled={isStarted}
+              className="p-1 border rounded text-sm"
+            >
+              <option value="30">30</option>
+              <option value="60">60</option>
+              <option value="90">90</option>
+              <option value="120">120</option>
+            </select>
+          </div>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className="container max-w-4xl mx-auto px-4 py-8">
       <Card className="shadow-lg border-t-4 border-t-rose-500 dark:border-t-rose-400">
@@ -341,6 +431,15 @@ export default function TypingSpeedTester() {
             </Card>
           </div>
 
+          {/* Timer Display (only in timer mode) */}
+          {timerMode && level === "advanced" && isStarted && !isFinished && (
+            <div className="flex justify-center">
+              <Card className={`px-4 py-2 ${timeRemaining < 10 ? "bg-red-100 dark:bg-red-900" : "bg-muted/50"}`}>
+                <span className="text-lg font-bold tabular-nums">Time Remaining: {formatTime(timeRemaining)}</span>
+              </Card>
+            </div>
+          )}
+
           {/* Text Display */}
           <Card className="border border-muted">
             <CardContent className="p-6">
@@ -360,6 +459,8 @@ export default function TypingSpeedTester() {
             />
             <Progress value={stats.accuracy} className="h-2" />
           </div>
+
+          <TimerModeToggle />
 
           {/* Control Buttons */}
           <div className="flex gap-4">
@@ -399,8 +500,10 @@ export default function TypingSpeedTester() {
       <Dialog open={showResults} onOpenChange={setShowResults}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Test Results</DialogTitle>
-            <DialogDescription>Your typing test performance</DialogDescription>
+            <DialogTitle>{testFailed ? "Test Failed" : "Test Results"}</DialogTitle>
+            <DialogDescription>
+              {testFailed ? "You didn't complete the test within the time limit." : "Your typing test performance"}
+            </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-2 gap-4">
