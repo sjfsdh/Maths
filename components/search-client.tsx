@@ -1,20 +1,19 @@
 "use client"
 
-import { useSearchParams } from "next/navigation"
 import { useState, useEffect } from "react"
 
 export default function SearchClient({
   onSearch,
+  initialQuery = "",
 }: {
   onSearch: (query: string) => void
+  initialQuery?: string
 }) {
-  const searchParams = useSearchParams()
-  const query = searchParams.get("q") || ""
-  const [searchQuery, setSearchQuery] = useState(query)
+  const [searchQuery, setSearchQuery] = useState(initialQuery)
 
   useEffect(() => {
-    onSearch(query)
-  }, [query, onSearch])
+    onSearch(searchQuery)
+  }, [searchQuery, onSearch])
 
   return (
     <div>

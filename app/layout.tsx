@@ -6,8 +6,6 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Suspense } from "react"
 
-// Import the ScrollTop component
-import { ScrollTop } from "@/components/scroll-top"
 // Import the ScrollToTopButton component
 import { ScrollToTopButton } from "@/components/scroll-to-top-button"
 
@@ -23,12 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans min-h-screen flex flex-col`}>
-        {/* Add the ScrollTop component inside the ThemeProvider */}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <ScrollTop />
           <Suspense fallback={<div>Loading...</div>}>
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1">
+              <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+            </main>
             <ScrollToTopButton />
             <Footer />
           </Suspense>

@@ -1,9 +1,12 @@
+"use client"
+
 import Link from "next/link"
 import { Logo } from "@/components/logo"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Menu } from "lucide-react"
+import { Suspense } from "react"
 
 export function Navbar() {
   return (
@@ -40,7 +43,9 @@ export function Navbar() {
           </Link>
         </nav>
         <div className="ml-auto flex items-center gap-2">
-          <ThemeToggle />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ThemeToggle />
+          </Suspense>
           <DropdownMenu>
             <DropdownMenuTrigger asChild className="md:hidden">
               <Button variant="outline" size="icon">
